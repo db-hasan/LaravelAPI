@@ -9,12 +9,22 @@
 
 ## About Laravel
 This is laravel
+git clone 
+cd your-project-name
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+npm install
+npm run build
+php artisan serve
+
 
 
 
 ## Learning Laravel
 
-git clone <repository-url>
+git clone 
 cd your-project-name
 composer install
 cp .env.example .env
