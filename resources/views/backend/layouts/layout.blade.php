@@ -292,11 +292,12 @@
                         </li>
                         <li class="dropdown-item">
                             <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a class="dropdown-link" href="route('logout')" 
-                            onclick="event.preventDefault();
-                            this.closest('form').submit();">
-                            <i class="fas fa-sign-out-alt"></i> {{ __('Log Out') }}</a>
+                                @csrf
+                                <a class="dropdown-link" href="route('logout')" 
+                                onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                <i class="fas fa-sign-out-alt"></i> {{ __('Log Out') }}</a>
+                            </form>
                         </li>
                         
                     </ul>
