@@ -32,15 +32,19 @@
             </div>
         </div>
 
-        <div class="mt-3">
+        <div class="my-3">
             <div class="row">
                 <div class="col-md-8">
                     <canvas id="myBarChart"></canvas>
+                </div>
+                <div class="col-md-4 container">
+                    <canvas id="myPieChart" width="400" height="400"></canvas>
                 </div>
             </div>
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 
     <script>
@@ -81,4 +85,46 @@
         });
     </script>
 
+    <script>
+    // JavaScript to create the pie chart
+        document.addEventListener("DOMContentLoaded", function() {
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+                ],
+                borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+            },
+            options: {
+            responsive: true,
+            plugins: {
+                title: {
+                display: true,
+                text: 'Custom Pie Chart'
+                }
+            }
+            }
+        });
+        });
+    </script>
 @endsection
