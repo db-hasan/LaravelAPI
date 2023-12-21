@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\backend\SalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +20,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('students', function () {
-//     return 'This is Students API';
-// });
+Route::get('product',[ProductController::class,'index']);
+Route::post('product',[ProductController::class,'store']);
+// Route::get('product/update/{id}',[ProductController::class,'edit']);
+// Route::post('product/update/{id}',[ProductController::class,'update']);
+// Route::get('product/show/{id}',[ProductController::class,'show']);
+// Route::get('product/destroy/{id}',[ProductController::class,'destroy']);
 
-Route::get('product/index',[ProductController::class,'index']);
-// Route::get('product/insert',[ProductController::class,'create']);
-Route::post('product/insert',[ProductController::class,'store']);
-Route::get('product/update/{id}',[ProductController::class,'edit']);
-Route::post('product/update/{id}',[ProductController::class,'update']);
-Route::get('product/show/{id}',[ProductController::class,'show']);
-Route::get('product/destroy/{id}',[ProductController::class,'destroy']);
+Route::get('sales',[SalesController::class,'index']);
+// Route::get('sales/insert',[SalesController::class,'create']);
+Route::post('sales',[SalesController::class,'store']);
+
+
+
+
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('product/index',[ProductController::class,'index'])->name('product.index');
