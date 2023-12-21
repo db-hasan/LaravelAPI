@@ -28,7 +28,6 @@ Route::post('product',[ProductController::class,'store']);
 // Route::get('product/destroy/{id}',[ProductController::class,'destroy']);
 
 Route::get('sales',[SalesController::class,'index']);
-// Route::get('sales/insert',[SalesController::class,'create']);
 Route::post('sales',[SalesController::class,'store']);
 
 
