@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('customer_name',50)->nullable();
             $table->string('customer_number',11)->nullable();
             $table->string('customer_address',255)->nullable();
-            $table->string('Product_id',11)->nullable();
+            $table->string('product_id',11)->nullable();
             $table->string('sales_qty',11)->nullable();
             $table->timestamps();
         });

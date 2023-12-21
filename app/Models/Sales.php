@@ -13,7 +13,7 @@ class Sales extends Model
         'customer_name',
         'customer_number',
         'customer_address',
-        'Product_id',
+        'product_id',
         'sales_qty',
     ];
 }

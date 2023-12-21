@@ -27,7 +27,7 @@ class SalesController extends Controller
             'customer_name'     => 'required|string|max:50',
             'customer_number'   => 'required|string|max:11',
             'customer_address'  => 'required|string|max:255',
-            'Product_id'        => 'required|string|max:11',
+            'product_id'        => 'required|string|max:11',
             'sales_qty'         => 'required|string|max:11',
         ]);
 
@@ -38,7 +38,7 @@ class SalesController extends Controller
                 'customer_name'     => $request->customer_name,
                 'customer_number'   => $request->customer_number,
                 'customer_address'  => $request->customer_address,
-                'Product_id'        => $request->Product_id,
+                'product_id'        => $request->product_id,
                 'sales_qty'         => $request->sales_qty,
             ]);
 
