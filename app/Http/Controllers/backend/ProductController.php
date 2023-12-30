@@ -16,7 +16,7 @@ class ProductController extends Controller
         if($indexData -> count() > 0){
             return response()->json(['status' => 200,'index' => $indexData], 200);
         }else{
-            return response()->json(['status' => 200,'index' => 'No Records Found'], 404);
+            return response()->json(['status' => 200,'message' => 'No Records Found'], 404);
         }
     }
 
@@ -60,7 +60,17 @@ class ProductController extends Controller
         if($indexData){
             return response()->json(['status' => 200,'index' => $indexData], 200);
         }else{
-            return response()->json(['status' => 404,'index' => 'No Records Found'], 404);
+            return response()->json(['status' => 404,'message' => 'No Records Found'], 404);
+        }
+    }
+
+    public function edit($id)
+    {
+        $indexData = Product::find($id);
+        if($indexData){
+            return response()->json(['status' => 200,'index' => $indexData], 200);
+        }else{
+            return response()->json(['status' => 404,'message' => 'No Records Found'], 404);
         }
     }
 
@@ -91,9 +101,9 @@ class ProductController extends Controller
                 'product_des'   => $request->product_des,
                 'product_img'   => $request->product_img,
             ]);
-                return response()->json(['status' => 200,'index' => 'Data Update Successfully'], 200);
+                return response()->json(['status' => 200,'message' => 'Data Update Successfully'], 200);
             }else{
-                return response()->json(['status' => 404,'index' => 'Something Went Wrong'], 404);
+                return response()->json(['status' => 404,'message' => 'Something Went Wrong'], 404);
             } 
         };
     }
@@ -103,8 +113,9 @@ class ProductController extends Controller
         $indexData = Product::find($id);
         if($indexData){
             $indexData -> delete();
+            return response()->json(['status' => 200,'message' => 'Data Delete Successfully'], 200);
         }else{
-            return response()->json(['status' => 404,'index' => 'No Records Found'], 404);
+            return response()->json(['status' => 404,'message' => 'No Records Found'], 404);
         }
     }
 
