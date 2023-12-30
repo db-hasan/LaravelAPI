@@ -47,9 +47,9 @@ class ProductController extends Controller
             ]);
 
             if($indexData){
-                return response()->json(['status' => 200,'index' => 'Data Submit Successfully'], 200);
+                return response()->json(['status' => 200,'message' => 'Data Submit Successfully'], 200);
             }else{
-                return response()->json(['status' => 500,'index' => 'Something Went Wrong'], 500);
+                return response()->json(['status' => 500,'message' => 'Something Went Wrong'], 500);
             } 
         };
     }
