@@ -160,6 +160,7 @@ class ProductController extends Controller
         }
     }
     
+
     public function edit($id)
     {
         $indexData = Product::find($id);
@@ -179,7 +180,7 @@ class ProductController extends Controller
             'sales_price' => 'required|string|max:11',
             'product_qty' => 'required|string|max:11',
             'product_des' => 'required|string|max:255',
-            'product_img.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'product_img.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if($validator -> fails()){
@@ -188,20 +189,14 @@ class ProductController extends Controller
             $indexData= Product::find($id);
 
             $imageNames = [];
-            foreach ($request->file('product_img') as $image) {
-                $imageName = time() . '_' . rand() . '.' . $image->getClientOriginalExtension();
 
-                $image->move(public_path('images'), $imageName);
-                $imageNames[] = $imageName;
+            foreach ($request->product_img as $image) {
+                $imagess = $request->file($image);
+                // $imageName = time() . '_' . rand() . '.' . $image->getClientOriginalExtension();
+
+                $imagess->move(public_path('images'), $image['name']);
+                $imageNames[] = $image['name'];
             }
-            
-            //  foreach ($request->product_img as $image) {
-            //     $imagess = $request->file($image);
-
-            //     $imagess->move(public_path('images'), $image['name']);
-            //     $imageNames[] = $image['name'];
-            // }
-
             if($indexData){$indexData -> update([
                 'product_name'  => $request->product_name,
                 'product_sku'   => $request->product_sku,
