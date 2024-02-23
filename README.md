@@ -24,7 +24,7 @@ php artisan serve
 
 ## Learning Laravel
 
-git clone 
+git clone <br>
 cd your-project-name
 composer install
 cp .env.example .env
